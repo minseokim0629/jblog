@@ -46,19 +46,20 @@ public class BlogController {
 		// Optional -> path1, path2가 null로 오면 에러가기 때문에 Optional 객체 사용
 
 		Map<String, Object> mainContents = blogService.getMainContents(id, path1, path2);
+
 		String result = mainContents.get("result").toString();
 
 		if (result == "fail") {
 			String data = mainContents.get("data").toString();
-			
+
 			if (data == "blog") {
 				return "redirect:/";
 			}
-			
+
 			if (data == "category") {
 				return "redirect:/" + id;
 			}
-			
+
 			if (data == "post") {
 				String categoryId = mainContents.get("categoryId").toString();
 				return "redirect:/" + id + "/" + categoryId;

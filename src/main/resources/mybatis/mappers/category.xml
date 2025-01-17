@@ -35,9 +35,9 @@
 		]]>
 	</select>
 	
-	<select id="findDefaultId" resultType="long">
+	<select id="findDefaultId" parameterType="string" resultType="long">
 		<![CDATA[
-			select ifnull(min(id), 0) from category
+			select ifnull(min(id), 0) from category where blog_id=#{blogId}
 		]]>
 	</select>
 	
@@ -52,11 +52,12 @@
 		]]>
 	</select>
 	
-	<select id="findBlogId" parameterType="long" resultType="string">
+	<select id="findBlogId" parameterType="map" resultType="string">
 		<![CDATA[
 			select blog_id as blogId
 		      from category
 		     where id=#{categoryId}
+		       and blog_id=#{blogId}
 		]]>
 	</select>
 	

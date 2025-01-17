@@ -42,7 +42,7 @@ public class BlogService {
 			categoryId = path1.get();
 			postId = postRepository.findDefaultId(categoryId);
 		} else {
-			categoryId = categoryRepository.findDefaultId();
+			categoryId = categoryRepository.findDefaultId(id);
 			postId = postRepository.findDefaultId(categoryId);
 		}
 
@@ -56,8 +56,8 @@ public class BlogService {
 			return map;
 		}
 
-		String blogIdOfCategoryId = categoryRepository.findBlogId(categoryId);
-
+		String blogIdOfCategoryId = categoryRepository.findBlogId(id, categoryId);
+		System.out.println(id+":"+blogIdOfCategoryId);
 		// 블로그에 속한 카테고리가 아닐 경우
 		if (!(id.equals(blogIdOfCategoryId))) {
 			map.put("result", "fail");
