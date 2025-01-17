@@ -58,12 +58,13 @@ $(function(){
 			</p>
 			<label class="block-label" for="blog-id">아이디</label>
 			<form:input path="id"/>
+
+			<input id="btn-checkemail" type="button" value="id 중복체크">
+			<img id="img-checkemail" style="display: none;" src="${pageContext.request.contextPath}/assets/images/check.png">
 			<p style="color:#f00; text-align:left; padding:0">
 				<form:errors path="id" />
 			</p>
-			<input id="btn-checkemail" type="button" value="id 중복체크">
-			<img id="img-checkemail" style="display: none;" src="${pageContext.request.contextPath}/assets/images/check.png" style="display:none">
-
+			
 			<label class="block-label" for="password">패스워드</label>
 			<form:password path="password"/>
 			<p style="color:#f00; text-align:left; padding:0">
